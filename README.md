@@ -39,6 +39,10 @@ Todo le loup
    python manage.py migrate
    ```
    
+## Load the model
+
+Place the trained .pkl file in the ai_model folder, named lenet_model.pkl
+   
 ## Usage
 
 1. Start the Django development server:
