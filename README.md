@@ -11,9 +11,6 @@ This Django web application recognizes handwritten digits using a trained AI mod
 - [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
-- [API Endpoint](#api-endpoint)
-- [Model Training](#model-training)
-- [License](#license)
 
 ## Demo
 
