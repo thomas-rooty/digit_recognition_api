@@ -38,13 +38,11 @@ def recognize_digit(request):
             # Convert to numpy array
             image = np.array(image)
 
-            # 3. Convert 3D array to 2D list of lists
-            lst = []
-            for row in image:
-                tmp = []
-                for col in row:
-                    tmp.append(str(col))
-                lst.append(tmp)
+            list_pixels = []
+            for i in range(28):
+                for j in range(28):
+                    list_pixels.append(image[i][j])
+
 
             # Invert image
             image = 255 - image
@@ -62,16 +60,21 @@ def recognize_digit(request):
             recognized_digit = int(np.argmax(predicted_digit))
 
             document = {
-                'digit': recognized_digit,
+                'prediction': recognized_digit,
                 'confidence': float(predicted_digit[0][recognized_digit]),
+
             }
 
-            # Add each pixel to the document
-            for i, row in enumerate(lst):
-              print(i)
-              print(row)
+            # loop in list_pixels
+            for i in range(len(list_pixels)):
+                document['pixel'+str(i)] = int(list_pixels[i])
 
-            return JsonResponse({'digit': recognized_digit, 'confidence': float(predicted_digit[0][recognized_digit])})
+            try:
+                id_document = collection.insert_one(document)
+            except Exception as e:
+                return JsonResponse({'error': 'Unable to save data in database', 'msg' : str(e)})
+
+            return JsonResponse({'digit': recognized_digit, 'confidence': float(predicted_digit[0][recognized_digit]), 'id': str(id_document.inserted_id)})
         except Exception as e:
             return JsonResponse({'error': str(e)})
     else:
