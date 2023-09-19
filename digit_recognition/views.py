@@ -3,10 +3,10 @@ from django.http import JsonResponse
 from PIL import Image, ImageOps
 import numpy as np
 from .model_loader import load_digit_recognition_model
+import pymongo
 
 # Load your digit recognition model
 model = load_digit_recognition_model()
-import pymongo
 
 client = pymongo.MongoClient('mongodb+srv://projetUser:projetUser@clustercoursmern.fmzajui.mongodb.net/')
 dbname = client['digit-recognition']
