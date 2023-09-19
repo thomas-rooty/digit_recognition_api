@@ -46,10 +46,6 @@ def recognize_digit(request):
                 for j in range(28):
                     list_pixels.append(image[i][j])
 
-
-            # Invert image
-            image = 255 - image
-
             # Normalize image
             image = image / 255
 
