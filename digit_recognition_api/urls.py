@@ -16,9 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from digit_recognition.views import recognize_digit
+from digit_recognition.views import recognize_digit, correct_predict
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('recognize_digit/', recognize_digit, name='recognize_digit'),
+    path('edit_preditction/', correct_predict, name='correct_predict')
 ]
