@@ -4,8 +4,10 @@ from PIL import Image, ImageOps
 import numpy as np
 from .model_loader import load_digit_recognition_model
 
+# Load your digit recognition model
+model = load_digit_recognition_model()
 
-# Create your views here.
+
 @csrf_exempt
 def recognize_digit(request):
   if request.method == 'POST':
@@ -13,9 +15,6 @@ def recognize_digit(request):
 
     if image_data is None:
       return JsonResponse({'error': 'No image file provided'})
-
-    # Load your digit recognition model
-    model = load_digit_recognition_model()
 
     try:
       # Read the image data into a PIL Image
