@@ -9,4 +9,5 @@ db.sqlite3-journal
 media
 ai_model/*.pkl
 ai_model/*.pt
+ai_model/*.h5
 .idea

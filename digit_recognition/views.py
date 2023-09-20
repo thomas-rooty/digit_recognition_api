@@ -16,6 +16,11 @@ collection_stockage = dbname['stockage']
 collection_upgrade = dbname['upgrade']
 
 
+@csrf_exempt
+def hello_world(request):
+    return JsonResponse({'msg': 'Hello World'})
+
+
 # Create your views here.
 @csrf_exempt
 def recognize_digit(request):

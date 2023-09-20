@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -24,7 +24,7 @@ SECRET_KEY = 'django-insecure-w1&v9ob*#d_$q_77!h7rbo_*&)_%k!_%l&c#n^(knnf)buyx)3
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["djangoai.eu-4.evennode.com"]
 
 # Application definition
 
@@ -49,7 +49,9 @@ MIDDLEWARE = [
   'django.middleware.clickjacking.XFrameOptionsMiddleware',
   'corsheaders.middleware.CorsMiddleware',
   'django.middleware.common.CommonMiddleware',
+  "django.middleware.security.SecurityMiddleware",
 ]
+
 
 ROOT_URLCONF = 'digit_recognition_api.urls'
 
@@ -120,4 +122,8 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+
 CORS_ALLOW_ALL_ORIGINS = True
+
+SECRET_KEY = "django-insecure-w1&v9ob*#d_$q_77!h7rbo_*&)_%k!_%l&c#n^(knnf)buyx)3"
