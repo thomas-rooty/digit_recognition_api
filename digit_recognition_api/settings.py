@@ -24,7 +24,7 @@ SECRET_KEY = 'django-insecure-w1&v9ob*#d_$q_77!h7rbo_*&)_%k!_%l&c#n^(knnf)buyx)3
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["djangoai.eu-4.evennode.com"]
+ALLOWED_HOSTS = ["djangoai.eu-4.evennode.com", "127.0.0.1"]
 
 # Application definition
 
