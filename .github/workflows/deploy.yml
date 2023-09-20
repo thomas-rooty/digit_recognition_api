@@ -19,6 +19,8 @@ jobs:
           echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           ssh-add ~/.ssh/id_rsa
+          # Ajoutez git.evennode.com à known_hosts
+          ssh-keyscan git.evennode.com >> ~/.ssh/known_hosts
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
 
