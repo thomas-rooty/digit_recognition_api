@@ -77,14 +77,14 @@ def recognize_digit(request):
       try:
         id_document = collection_stockage.insert_one(document)
       except Exception as e:
-        return JsonResponse({'error': 'Unable to save data in database', 'msg': str(e)})
+        return JsonResponse({'error inserting data in mongodb': 'Unable to save data in database', 'msg': str(e)})
 
       return JsonResponse({'digit': recognized_digit, 'confidence': float(predicted_digit[0][recognized_digit]),
                            'id': str(id_document.inserted_id)})
     except Exception as e:
-      return JsonResponse({'error': str(e)})
+      return JsonResponse({'error predicting digit': str(e)})
   else:
-    return JsonResponse({'error': 'POST method required'})
+    return JsonResponse({'error in method': 'POST method required'})
 
 
 @csrf_exempt
